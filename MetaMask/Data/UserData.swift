@@ -11,6 +11,20 @@ final class UserData: ObservableObject {
     @Published var user: User = load("user.json")
     @Published var hideWelcome: Bool = UserDefaultsData.restoreFromUserDefaults()
     
+    @Published var loading: Bool = false {
+        didSet {
+            if oldValue == false, loading == true {
+                loadData()
+            }
+        }
+    }
+    
+    func loadData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            self.loading = false
+        }
+    }
+    
     func hideWelcomePage() {
         hideWelcome = true
         UserDefaultsData.storeInUserDefaults()

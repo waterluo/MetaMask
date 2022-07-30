@@ -10,12 +10,17 @@ import SwiftUI
 struct WalletView: View {
     @ObservedObject var model: UserData
     var body: some View {
-        GeometryReader { geo in
-            ScrollView {
-                VStack {
-                    top
-                    bottom
-                }
+//            ScrollView {
+//                VStack {
+//                    top
+//                    bottom
+//                }
+//            }
+        
+    RefreshScrollView(refreshing: $model.loading) {
+            VStack {
+                top
+                bottom
             }
         }
     }
@@ -81,7 +86,7 @@ struct Btn: Hashable {
 
 struct WalletViewConstants {
     static let btns: [Btn] = [
-        Btn(image: "arrow.down.to.line.compact", title: "Receive"),
+        Btn(image: "arrow.down.to.line.alt", title: "Receive"),
         Btn(image: "creditcard", title: "Buy"),
         Btn(image: "arrow.up.right", title: "Send"),
         Btn(image: "arrow.2.squarepath", title: "Swap")
