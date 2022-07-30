@@ -1,0 +1,18 @@
+
+{
+    "avatar":"",
+    "name":"hello",
+    "balance":"0.34",
+    "address":"0x8e8189a963409501Bbc9CF962756a1f5CCce92F8",
+    "tokens":[
+            {
+                "id":1001,
+                "icon":"eth-logo",
+                "amount":"0.0002",
+                "value":"0.34",
+                "category":"ETH"
+            }
+    ],
+    "nfts":[]
+}
+
