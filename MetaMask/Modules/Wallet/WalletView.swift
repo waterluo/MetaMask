@@ -10,19 +10,19 @@ import SwiftUI
 struct WalletView: View {
     @ObservedObject var model: UserData
     var body: some View {
-//            ScrollView {
-//                VStack {
-//                    top
-//                    bottom
-//                }
-//            }
-        
-    RefreshScrollView(refreshing: $model.loading) {
-            VStack {
-                top
-                bottom
+            ScrollView {
+                VStack {
+                    top
+                    bottom
+                }
             }
-        }
+        
+//    RefreshScrollView(refreshing: $model.loading) {
+//            VStack {
+//                top
+//                bottom
+//            }
+//        }
     }
     
     var top: some View {
