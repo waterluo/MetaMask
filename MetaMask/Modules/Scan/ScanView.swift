@@ -17,20 +17,7 @@ struct ScanView: View {
     @Binding var showAlert: Bool
 
     var body: some View {
-        VStack {
-            HStack{
-                Spacer()
-                Button {
-                    showScan = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.gray)
-                }
-                .padding()
-            }
+        NavigationView {
             CodeScannerView(codeTypes: [.qr]) { response in
                 if case let .success(result) = response {
                     scannedCode = result.string
@@ -40,6 +27,20 @@ struct ScanView: View {
                     }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        showScan = false
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
+            .navigationTitle("QR Code Scanning")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
