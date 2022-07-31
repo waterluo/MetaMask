@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046D697F2896A605006A753D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 046D697E2896A605006A753D /* Alamofire */; };
+		046D69822896A68E006A753D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 046D69812896A68E006A753D /* Kingfisher */; };
+		046D69852896A7F6006A753D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 046D69842896A7F6006A753D /* Lottie */; };
 		1A2553672895175300FA036E /* ScrollContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25535A2895175300FA036E /* ScrollContainer.swift */; };
 		1A2553682895175300FA036E /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25535C2895175300FA036E /* PageControl.swift */; };
 		1A2553692895175300FA036E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25535D2895175300FA036E /* PageViewController.swift */; };
@@ -124,7 +127,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046D69822896A68E006A753D /* Kingfisher in Frameworks */,
 				1AAA0FFD2895EF8F0059FB8F /* CodeScanner in Frameworks */,
+				046D697F2896A605006A753D /* Alamofire in Frameworks */,
+				046D69852896A7F6006A753D /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +445,9 @@
 			name = MetaMask;
 			packageProductDependencies = (
 				1AAA0FFC2895EF8F0059FB8F /* CodeScanner */,
+				046D697E2896A605006A753D /* Alamofire */,
+				046D69812896A68E006A753D /* Kingfisher */,
+				046D69842896A7F6006A753D /* Lottie */,
 			);
 			productName = MetaMask;
 			productReference = 1ABF8D3D2894E02F007D6E93 /* MetaMaskBeta.app */;
@@ -514,6 +523,9 @@
 			mainGroup = 1ABF8D342894E02E007D6E93;
 			packageReferences = (
 				1AAA0FFB2895EF8F0059FB8F /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				046D697D2896A605006A753D /* XCRemoteSwiftPackageReference "Alamofire" */,
+				046D69802896A68E006A753D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				046D69832896A7F6006A753D /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 1ABF8D3E2894E02F007D6E93 /* Products */;
 			projectDirPath = "";
@@ -925,6 +937,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		046D697D2896A605006A753D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		046D69802896A68E006A753D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		046D69832896A7F6006A753D /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		1AAA0FFB2895EF8F0059FB8F /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
@@ -936,6 +972,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		046D697E2896A605006A753D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 046D697D2896A605006A753D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		046D69812896A68E006A753D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 046D69802896A68E006A753D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		046D69842896A7F6006A753D /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 046D69832896A7F6006A753D /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		1AAA0FFC2895EF8F0059FB8F /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1AAA0FFB2895EF8F0059FB8F /* XCRemoteSwiftPackageReference "CodeScanner" */;
