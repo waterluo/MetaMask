@@ -47,11 +47,10 @@ struct ScrollUI<Page: View>: UIViewRepresentable {
         // UIScrollViewDelegate
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
             scroll.contentOffset = scrollView.contentOffset
-            print(scrollView.contentOffset)
         }
         
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            print("-----------------")
+
         }
     }
     

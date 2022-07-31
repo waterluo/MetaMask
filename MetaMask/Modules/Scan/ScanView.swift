@@ -6,17 +6,39 @@
 //
 
 import SwiftUI
+import AVFoundation
+import CodeScanner
+
 
 struct ScanView: View {
     
-    @Binding var scan: Bool
-    
+    @Binding var showScan: Bool
+    @Binding var scannedCode: String?
+    @Binding var showAlert: Bool
+
     var body: some View {
         VStack {
-            Button {
-                scan = false
-            } label: {
-                Image(systemName: "xmark")
+            HStack{
+                Spacer()
+                Button {
+                    showScan = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(.gray)
+                }
+                .padding()
+            }
+            CodeScannerView(codeTypes: [.qr]) { response in
+                if case let .success(result) = response {
+                    scannedCode = result.string
+                    showScan = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                        showAlert = true
+                    }
+                }
             }
         }
     }
@@ -24,6 +46,6 @@ struct ScanView: View {
 
 struct ScanView_Previews: PreviewProvider {
     static var previews: some View {
-        ScanView(scan: .constant(true))
+        ScanView(showScan: .constant(true), scannedCode: .constant("hello"), showAlert: .constant(true))
     }
 }

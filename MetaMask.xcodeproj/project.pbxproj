@@ -18,6 +18,7 @@
 		1A25536F2895175300FA036E /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2553642895175300FA036E /* PhotoLibrary.swift */; };
 		1A2553702895175300FA036E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2553662895175300FA036E /* CircleImage.swift */; };
 		1AAA0FFA2895E6D10059FB8F /* RefreshScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA0FF92895E6D10059FB8F /* RefreshScrollView.swift */; };
+		1AAA0FFD2895EF8F0059FB8F /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1AAA0FFC2895EF8F0059FB8F /* CodeScanner */; };
 		1ABF8D452894E032007D6E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF8D442894E032007D6E93 /* Assets.xcassets */; };
 		1ABF8D482894E032007D6E93 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF8D472894E032007D6E93 /* Preview Assets.xcassets */; };
 		1ABF8D522894E032007D6E93 /* MetaMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABF8D512894E032007D6E93 /* MetaMaskTests.swift */; };
@@ -123,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAA0FFD2895EF8F0059FB8F /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +437,9 @@
 			dependencies = (
 			);
 			name = MetaMask;
+			packageProductDependencies = (
+				1AAA0FFC2895EF8F0059FB8F /* CodeScanner */,
+			);
 			productName = MetaMask;
 			productReference = 1ABF8D3D2894E02F007D6E93 /* MetaMaskBeta.app */;
 			productType = "com.apple.product-type.application";
@@ -507,6 +512,9 @@
 				Base,
 			);
 			mainGroup = 1ABF8D342894E02E007D6E93;
+			packageReferences = (
+				1AAA0FFB2895EF8F0059FB8F /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 1ABF8D3E2894E02F007D6E93 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -743,17 +751,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MetaMask/Preview Content\"";
 				DEVELOPMENT_TEAM = Z9ATNKXHJQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,17 +782,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MetaMask/Preview Content\"";
 				DEVELOPMENT_TEAM = Z9ATNKXHJQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -913,6 +923,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1AAA0FFB2895EF8F0059FB8F /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1AAA0FFC2895EF8F0059FB8F /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AAA0FFB2895EF8F0059FB8F /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1ABF8D352894E02E007D6E93 /* Project object */;
 }

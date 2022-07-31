@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     
@@ -15,7 +16,8 @@ struct ContentView: View {
     @State private var current: Double = 1
     @State private var showMore = false
     @State private var showNetworks = false
-
+    @State private var scannedCode: String?
+    @State private var showAlert = false
     
     var body: some View {
         GeometryReader { geo in
@@ -27,8 +29,32 @@ struct ContentView: View {
                             .navigationBarTitleDisplayMode(.inline)
                     }
                     .fullScreenCover(isPresented: $showScan, content: {
-                        ScanView(scan: $showScan)
+                        ScanView(showScan: $showScan, scannedCode: $scannedCode, showAlert: $showAlert)
                     })
+                    .alert(isPresented: $showAlert) {
+                        if let result = scannedCode {
+                           return Alert(
+                                title: Text("Scanned Result"),
+                                message: Text(result),
+                                dismissButton: .default(Text("Ok")) {
+                                    showAlert = false
+                                    scannedCode = nil
+                                }
+                            )
+                        } else {
+                        
+                       return Alert(
+                            title: Text("Camera access"),
+                            message: Text("This app uses the camera to scan QR code. Please go to Settings and allow camera access to proceed."),
+                            primaryButton: .default(Text("Settings")) {
+                                if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
+                                    UIApplication.shared.open(settingsUrl)
+                                }
+                            },
+                            secondaryButton: .cancel()
+                        )
+                        }
+                    }
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button {
@@ -62,7 +88,7 @@ struct ContentView: View {
                         }
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button {
-                                showScan = true
+                                checkCameraPermission()
                             } label: {
                                 Image(systemName: "camera.viewfinder")
                             }
@@ -73,6 +99,28 @@ struct ContentView: View {
                     .offset(x: showMore ? 0 : -geo.size.width)
                 NetworksView(current: Network.default, show: $showNetworks)
                     .offset(y: showNetworks ? 0 : geo.size.height + geo.safeAreaInsets.bottom)
+            }
+        }
+    }
+    
+    func checkCameraPermission() {
+        if Camera.isAvailable {
+            if AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
+                //already authorized
+                print("already authorized")
+                showScan = true
+            } else {
+                AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                    if granted {
+                        //access allowed
+                        showScan = true
+                        print("access allowed")
+                    } else {
+                        //access denied
+                        print("access denied")
+                        showAlert = true
+                    }}
+                )
             }
         }
     }
