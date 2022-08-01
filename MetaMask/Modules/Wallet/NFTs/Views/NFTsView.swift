@@ -56,7 +56,8 @@ struct NFTsView: View {
                 }
             }
             Spacer()
-        }.padding(5)
+        }.padding(.top, 35)
+
     }
 }
 

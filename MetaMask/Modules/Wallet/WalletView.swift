@@ -69,13 +69,14 @@ struct WalletView: View {
 
     
     var bottom: some View {
-        PageContainer(items: ["TOKENS","NFTs"]) { item in
-            if item == "TOKENS" {
+        TabScrollView(items: [TabItem(title: "TOKENS"), TabItem(title: "NFTS")]) { item in
+            if item.title == "TOKENS"{
                 TokensView(tokens: model.user.tokens)
-            } else if item == "NFTs" {
+            } else if item.title == "NFTS" {
                 NFTsView()
             }
-        }.frame(height: 500)
+        }
+        .frame(height: 500)
     }
 }
 

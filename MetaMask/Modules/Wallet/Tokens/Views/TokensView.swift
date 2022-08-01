@@ -33,6 +33,7 @@ struct TokensView: View {
             }
             .frame(height: 100)
         }
+        .padding(.top, 35)
     }
 }
 
