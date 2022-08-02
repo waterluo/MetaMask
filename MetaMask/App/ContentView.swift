@@ -42,7 +42,6 @@ struct ContentView: View {
                                 }
                             )
                         } else {
-                        
                        return Alert(
                             title: Text("Camera access"),
                             message: Text("This app uses the camera to scan QR code. Please go to Settings and allow camera access to proceed."),
@@ -122,6 +121,8 @@ struct ContentView: View {
                     }}
                 )
             }
+        } else {
+            
         }
     }
 }
